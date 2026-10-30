@@ -2,9 +2,9 @@
 
 Community characters and patch packs for AzurKit, the modding toolkit for
 *Azurik: Rise of Perathia*. AzurKit lists each entry here beside its own,
-marked community: variants in its Characters pickers, packs in its Patches
-tab. **Install** and **Update** there fetch them, on the website and in the
-app.
+marked community: variants in its Characters pickers (packs in its Patches
+tab are to come). **Install** and **Update** there fetch them, on the
+website and in the app.
 
 | Entry | Kind | What it is |
 |---|---|---|
