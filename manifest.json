@@ -1,0 +1,101 @@
+{
+  "format": "azurik-custom-content",
+  "schema_version": 1,
+  "entries": [
+    {
+      "id": "booblord",
+      "kind": "variant",
+      "title": "Booblord",
+      "author": "Azurik-Modding-Hub",
+      "licence": "MIT",
+      "version": 1,
+      "files": [
+        {
+          "path": "variants/booblord/variant.json",
+          "sha256": "c6710ebb74e7514d63eacc659263b24dc67fbd280d9b47ca038314817f347e8c",
+          "size": 89666
+        },
+        {
+          "path": "clips/booblord/idles.glb",
+          "sha256": "0ecfdef65e6e2e3b48335b198eaba5b99f9f779360a79f3b7e9fd2837d16779c",
+          "size": 1405416
+        },
+        {
+          "path": "clips/booblord/moves.glb",
+          "sha256": "292490a410f46ec5722715029285a6eff3f48528c6dd12545ec96d9e5fe3e7ab",
+          "size": 588416
+        },
+        {
+          "path": "sounds/booblord/README.md",
+          "sha256": "6281732c9d6e76475022550409317ace7842291ba5ab327e11c8ac6765615371",
+          "size": 2638
+        },
+        {
+          "path": "sounds/booblord/attack1.wav",
+          "sha256": "c12307a2c7c0759ba1e9e005c86e6f272e29162d93302161f234058227429b17",
+          "size": 36556,
+          "licence": "the owner's own sounds, used with the owner's permission, 2026-10-21 (D405: 'i am allowed to use them, they can go into the repo and will go into our custom assets repo later'); not under the MIT licence"
+        },
+        {
+          "path": "sounds/booblord/attack2.wav",
+          "sha256": "48a7724da6646ee105afb663c92b0f7be711416fdddf1b5382f9525cdb4f92ed",
+          "size": 46508,
+          "licence": "the owner's own sounds, used with the owner's permission, 2026-10-21 (D405: 'i am allowed to use them, they can go into the repo and will go into our custom assets repo later'); not under the MIT licence"
+        },
+        {
+          "path": "sounds/booblord/fall.wav",
+          "sha256": "495c8f7976c00f01c483d6df515266ecc8f539bc86aa16592838b3ce534cab0c",
+          "size": 49804,
+          "licence": "the owner's own sounds, used with the owner's permission, 2026-10-21 (D405: 'i am allowed to use them, they can go into the repo and will go into our custom assets repo later'); not under the MIT licence"
+        },
+        {
+          "path": "sounds/booblord/grunt.wav",
+          "sha256": "b2a5414fefeddb5e724d81e5e58160f14b8bb9fcd6b2747ffd6db581c1001b0c",
+          "size": 15356,
+          "licence": "the owner's own sounds, used with the owner's permission, 2026-10-21 (D405: 'i am allowed to use them, they can go into the repo and will go into our custom assets repo later'); not under the MIT licence"
+        },
+        {
+          "path": "sounds/booblord/hit.wav",
+          "sha256": "4c7f4ef7fd86f051098330c33886d4c337fa7b4033ce4122ef7e35921e660d43",
+          "size": 38406,
+          "licence": "the owner's own sounds, used with the owner's permission, 2026-10-21 (D405: 'i am allowed to use them, they can go into the repo and will go into our custom assets repo later'); not under the MIT licence"
+        },
+        {
+          "path": "sounds/booblord/hup.wav",
+          "sha256": "44ccda1eb27bb6d14ed6f7039679f9cfb41df187cddcbda393bd7b4c77038dfc",
+          "size": 15974,
+          "licence": "the owner's own sounds, used with the owner's permission, 2026-10-21 (D405: 'i am allowed to use them, they can go into the repo and will go into our custom assets repo later'); not under the MIT licence"
+        },
+        {
+          "path": "sounds/booblord/roll.wav",
+          "sha256": "353b09e9fa256668dfd7cd8f4ed42d06b4467f82b6c554cbc51a7193f45fe40c",
+          "size": 24950,
+          "licence": "the owner's own sounds, used with the owner's permission, 2026-10-21 (D405: 'i am allowed to use them, they can go into the repo and will go into our custom assets repo later'); not under the MIT licence"
+        },
+        {
+          "path": "sounds/booblord/shout.wav",
+          "sha256": "971d18a88af243a817932f462a372c73c137afa958f421823b7150e12817d29c",
+          "size": 18828,
+          "licence": "the owner's own sounds, used with the owner's permission, 2026-10-21 (D405: 'i am allowed to use them, they can go into the repo and will go into our custom assets repo later'); not under the MIT licence"
+        }
+      ],
+      "requires": []
+    },
+    {
+      "id": "beamlord",
+      "kind": "variant",
+      "title": "Beamlord",
+      "author": "Azurik-Modding-Hub",
+      "licence": "MIT",
+      "version": 1,
+      "files": [
+        {
+          "path": "variants/beamlord/variant.json",
+          "sha256": "438545db25b2c9980a4c5c0e6c6a9a22c1011f1f2bfe39d888eadff517dd9bec",
+          "size": 5810
+        }
+      ],
+      "requires": []
+    }
+  ]
+}

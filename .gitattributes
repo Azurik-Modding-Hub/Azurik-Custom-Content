@@ -1,0 +1,2 @@
+# Byte for byte: manifest.json holds every file's sha256, so git never converts line endings.
+* -text
