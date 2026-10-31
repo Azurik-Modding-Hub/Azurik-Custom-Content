@@ -27,8 +27,9 @@ anywhere in the tree; the rest is for the review.
 ## Adding or changing an entry
 
 1. Put the files under `variants/<id>/`, `clips/`, `sounds/`, `fx/` or
-   `packs/<id>/`. A path is where AzurKit installs the file in the player's
-   content folder.
+   `packs/<id>/`, each of a kind its folder takes (the README's layout: no
+   `.html`, `.svg` or `.js`). A path is where AzurKit installs the file in
+   the player's content folder.
 2. Add the entry to `manifest.json`, or change it (see the README's
    manifest). List every file; leave `sha256` and `size` to the check.
 3. Bump the entry's `version` on any change to its files: AzurKit offers

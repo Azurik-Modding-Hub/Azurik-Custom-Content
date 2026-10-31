@@ -45,6 +45,12 @@ packs/<id>/pack.json          a pack: an AzurKit mods file (none yet)
 scripts/check.py              the check below
 ```
 
+Each folder takes only its own kinds of file, and a `.md` note: `variants/`
+`.json`, `.glb`, `.gltf`, `.bin` and `.png` (a recipe and the files read
+beside it); `clips/` `.glb`, `.gltf` and `.bin`; `sounds/` `.wav`; `fx/`
+`.glb`, `.gltf`, `.bin` and `.png`; `packs/` `.json`. No path holds a `:`
+or a name Windows keeps for a device (`CON`, `NUL`, `COM1`).
+
 ## The manifest
 
 ```json
@@ -71,10 +77,12 @@ python3 -I scripts/check.py           # exit 0, or 1 with one line per fault
 python3 -I scripts/check.py --write   # first fill in each listed file's sha256 and size
 ```
 
-It checks the manifest's shape, every listed file's size and sha256, that
-every file under the content folders is listed, and that nothing here is a
-game image or a part of one, a disk image, an EEPROM dump, a RAM snapshot or
-a private key. Python 3.10 or later, no packages.
+It checks the manifest's shape (at most 1,000 entries and 10,000 files, an
+entry's files at most 256 MiB), every listed file's size and sha256 and its
+kind, that every file under the content folders is listed, and that nothing
+here is a game image or a part of one, a disk image, an EEPROM dump, a RAM
+snapshot or a private key. Python 3.10 or later, no packages. AzurKit checks
+the same rules on Install.
 
 ## Licences
 

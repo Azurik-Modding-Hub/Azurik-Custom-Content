@@ -12,9 +12,13 @@ The manifest (``manifest.json``) is ``{"format": "azurik-custom-content",
 number, bumped by any change to its files), "files": [{"path", "sha256",
 "size"[, "licence"]}], "requires": [ids]}``. A file's path is the same here
 and in the player's content folder, under ``variants/``, ``clips/``,
-``sounds/``, ``fx/`` or ``packs/``; a variant entry lists
-``variants/<id>/variant.json`` (an object of recipes, ``{name: recipe}``),
-a pack entry ``packs/<id>/pack.json``.
+``sounds/``, ``fx/`` or ``packs/``, with a suffix its folder takes
+(:data:`SUFFIXES`: no page, script or document a browser renders), and no
+``:`` or name Windows keeps for a device (``CON``, ``NUL.json``); a variant
+entry lists ``variants/<id>/variant.json`` (an object of recipes, ``{name:
+recipe}``), a pack entry ``packs/<id>/pack.json``. A manifest holds at most
+1,000 entries and 10,000 files, an entry's files at most 256 MiB. These are
+AzurKit's own rules (its ``content.check``): the two change together.
 
 Refused anywhere in the tree (as AzurKit's own leak guard): a game image or
 a part of one (``MICROSOFT*XBOX*MEDIA`` at 0x10000, or an ``.iso``,
@@ -39,16 +43,22 @@ from pathlib import Path, PurePosixPath
 FORMAT = "azurik-custom-content"
 SCHEMA_VERSION = 1
 KINDS = {"variant": "variants/{id}/variant.json", "pack": "packs/{id}/pack.json"}
-TOPS = ("variants", "clips", "sounds", "fx", "packs")
+SUFFIXES = {"variants": (".json", ".glb", ".gltf", ".bin", ".png", ".md"), "clips": (".glb", ".gltf", ".bin", ".md"),
+            "sounds": (".wav", ".md"), "fx": (".glb", ".gltf", ".bin", ".png", ".md"), "packs": (".json", ".md")}
+"""The suffixes each folder's files may have (any letter case): a variant's recipe and the files AzurKit reads
+beside it (glTF clips and meshes, PNG pictures), clips, sounds, effects' files, a pack's JSON, and a note (.md)."""
+TOPS = tuple(SUFFIXES)
 ENTRY_KEYS = ("id", "kind", "title", "author", "licence", "version", "files", "requires")
 FILE_KEYS = ("path", "sha256", "size")
 MAX_MANIFEST = 1 << 20
 MAX_FILE = 64 << 20
+MAX_ENTRIES, MAX_FILES, MAX_ENTRY = 1000, 10000, 256 << 20
 MAGIC_SPAN = 0x10020
 ID = re.compile(r"[a-z][a-z0-9_]*")
 SHA256 = re.compile(r"[0-9a-f]{64}")
 ISO_NAME = re.compile(r"\.x?iso(\.\d+)?$")
 PRIVATE_KEY = re.compile(rb"-----BEGIN [A-Z0-9 ]*PRIVATE KEY-----\r?\n")
+DEVICE = re.compile(r"(con|prn|aux|nul|com[1-9¹²³]|lpt[1-9¹²³]) *(\..*)?", re.IGNORECASE)
 
 
 def refused(rel: str, head: bytes) -> str | None:
@@ -102,6 +112,12 @@ def _path_fault(path) -> str | None:
         return "has an empty, '.' or '..' part"
     if parts[0] not in TOPS or len(parts) < 2:
         return f"is not under {', '.join(t + '/' for t in TOPS)}"
+    if device := next((p for p in parts if DEVICE.fullmatch(p)), None):
+        return f"has {device!r}, a name Windows keeps for a device"
+    suffix = PurePosixPath(path).suffix.lower()
+    if suffix not in SUFFIXES[parts[0]]:
+        return (f"is {f'a {suffix}' if suffix else 'a suffix-less'} file: {parts[0]}/ holds only "
+                f"{', '.join(SUFFIXES[parts[0]])} files")
     return None
 
 
@@ -124,6 +140,11 @@ def check_manifest(doc) -> list[str]:
     entries = doc.get("entries")
     if not isinstance(entries, list):
         return faults + ["manifest.json: entries is not a list"]
+    if len(entries) > MAX_ENTRIES:
+        return faults + [f"manifest.json: {len(entries)} entries, over the {MAX_ENTRIES} a manifest may hold"]
+    if (count := sum(len(e["files"]) for e in entries if isinstance(e, dict) and isinstance(e.get("files"), list))) \
+            > MAX_FILES:
+        return faults + [f"manifest.json: {count} files, over the {MAX_FILES} a manifest may list"]
     ids, claimed = {}, {}
     for i, entry in enumerate(entries):
         at = f"manifest.json: entries[{i}]"
@@ -171,6 +192,8 @@ def check_manifest(doc) -> list[str]:
                 faults.append(f"{where}: size {f['size']!r} is not a whole number up to {MAX_FILE}")
             if "licence" in f and not (isinstance(f["licence"], str) and f["licence"].strip()):
                 faults.append(f"{where}: licence is not a non-empty string")
+        if (size := sum(f["size"] for f in files or () if isinstance(f, dict) and _whole(f.get("size")))) > MAX_ENTRY:
+            faults.append(f"{at}: its files are {size} bytes, over the {MAX_ENTRY} an entry may hold")
         if kind in KINDS and isinstance(eid, str) and isinstance(files, list):
             own = KINDS[kind].format(id=eid)
             if own not in {f.get("path") for f in files if isinstance(f, dict)}:
@@ -295,6 +318,9 @@ def main(argv: list[str] | None = None) -> int:
         doc = json.loads(manifest.read_text(encoding="utf-8"))
     except (UnicodeDecodeError, json.JSONDecodeError) as exc:
         print(f"manifest.json: not UTF-8 JSON: {exc}")
+        return 1
+    except RecursionError:
+        print("manifest.json: not UTF-8 JSON: nested too deep")
         return 1
     if args.write and isinstance(doc, dict):
         write(args.root, doc)
