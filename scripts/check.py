@@ -43,10 +43,13 @@ from pathlib import Path, PurePosixPath
 FORMAT = "azurik-custom-content"
 SCHEMA_VERSION = 1
 KINDS = {"variant": "variants/{id}/variant.json", "pack": "packs/{id}/pack.json"}
-SUFFIXES = {"variants": (".json", ".glb", ".gltf", ".bin", ".png", ".md"), "clips": (".glb", ".gltf", ".bin", ".md"),
-            "sounds": (".wav", ".md"), "fx": (".glb", ".gltf", ".bin", ".png", ".md"), "packs": (".json", ".md")}
+SUFFIXES = {"variants": (".json", ".glb", ".gltf", ".bin", ".png", ".md", ".azkp"),
+            "clips": (".glb", ".gltf", ".bin", ".md"), "sounds": (".wav", ".md"),
+            "fx": (".glb", ".gltf", ".bin", ".png", ".md"), "packs": (".json", ".md")}
 """The suffixes each folder's files may have (any letter case): a variant's recipe and the files AzurKit reads
-beside it (glTF clips and meshes, PNG pictures), clips, sounds, effects' files, a pack's JSON, and a note (.md)."""
+beside it (glTF clips and meshes, PNG pictures) and its shipped answers (.azkp: AzurKit's recorded build of it at
+the defaults, read only when AzurKit's own table lists its size and sha256), clips, sounds, effects' files, a pack's
+JSON, and a note (.md)."""
 TOPS = tuple(SUFFIXES)
 ENTRY_KEYS = ("id", "kind", "title", "author", "licence", "version", "files", "requires")
 FILE_KEYS = ("path", "sha256", "size")
