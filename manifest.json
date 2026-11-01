@@ -8,12 +8,12 @@
       "title": "Booblord",
       "author": "Azurik-Modding-Hub",
       "licence": "MIT",
-      "version": 2,
+      "version": 3,
       "files": [
         {
           "path": "variants/booblord/variant.json",
-          "sha256": "c6710ebb74e7514d63eacc659263b24dc67fbd280d9b47ca038314817f347e8c",
-          "size": 89666
+          "sha256": "e561d20323632b96e51f8ec9be62f81e142ec346bc3d3487fc4e3a718b1365d3",
+          "size": 89718
         },
         {
           "path": "clips/booblord/idles.glb",
@@ -79,14 +79,14 @@
           "licence": "the owner's own sounds, used with the owner's permission, 2026-10-21 (D405: 'i am allowed to use them, they can go into the repo and will go into our custom assets repo later'); not under the MIT licence"
         },
         {
-          "path": "variants/booblord/shipped/europe-17d629747530.azkp",
-          "sha256": "17d629747530d2092909f1a8bdba74a4659c4134fb37564b018f48bcc64ec8fd",
-          "size": 6586052
+          "path": "variants/booblord/shipped/europe-c92a8aab9741.azkp",
+          "sha256": "c92a8aab97415015b067a4e2df2ff3fb2935d0e9a06bd589f9b284b5c65eb660",
+          "size": 6584879
         },
         {
-          "path": "variants/booblord/shipped/usa-6ef66938464b.azkp",
-          "sha256": "6ef66938464b8cf28b88897416c2d7d8dcdf2edf9a34b58c4e8548be5d967735",
-          "size": 6591397
+          "path": "variants/booblord/shipped/usa-ef28260f20ee.azkp",
+          "sha256": "ef28260f20ee403e0d68ed30e10227c6d0f03a56632a58dad4c3fda72605aa98",
+          "size": 6590224
         }
       ],
       "requires": []
