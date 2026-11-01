@@ -79,14 +79,14 @@
           "licence": "the owner's own sounds, used with the owner's permission, 2026-10-21 (D405: 'i am allowed to use them, they can go into the repo and will go into our custom assets repo later'); not under the MIT licence"
         },
         {
-          "path": "variants/booblord/shipped/europe-0befa55dd830.azkp",
-          "sha256": "0befa55dd830174eb746ff7c4c5b35835a7585544d8290a552a1264086ace42b",
-          "size": 6584457
+          "path": "variants/booblord/shipped/europe-fbd58d2351b0.azkp",
+          "sha256": "fbd58d2351b0e2eb0a16620cb33be3e1fb51c734ea5727f8c17779207dccdef7",
+          "size": 6586092
         },
         {
-          "path": "variants/booblord/shipped/usa-3ef5459db120.azkp",
-          "sha256": "3ef5459db12016122c7f3f439672122cea0bb754393970a76559d0dfe675d16c",
-          "size": 6591595
+          "path": "variants/booblord/shipped/usa-72ca94916d6d.azkp",
+          "sha256": "72ca94916d6dccc7922ef147e007631d2d050a30f0d5e76a7666975323e98a8a",
+          "size": 6597452
         }
       ],
       "requires": []
