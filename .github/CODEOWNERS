@@ -1,0 +1,18 @@
+# Who reviews a change (Step 4.4cc-a). Main's branch rules require a code owner's approval on every pull request, so
+# a change merges only after the owner has read it.
+#
+# Every file here reaches players or decides what reaches them: AzurKit installs what manifest.json lists, the check
+# refuses images and keys anywhere in the tree, and LICENSE and NOTICE.md say whose each file is. So the owner owns
+# them all.
+*                @MichaelJSr
+
+# These four come again last, because the last line that matches a path names its owners. A later line that hands
+# a folder to its author (say /variants/<id>/) still can't take them from the owner. Keep them last.
+# - manifest.json: the entries, and the sha256 and size AzurKit checks each install against.
+# - scripts/: the checker. Pull requests run main's copy (.github/workflows/check.yml).
+# - .github/: this file and the pull-request check.
+# - .gitattributes: it decides the bytes a checkout writes, and the manifest's sha256s hold only for "* -text".
+/manifest.json   @MichaelJSr
+/scripts/        @MichaelJSr
+/.github/        @MichaelJSr
+/.gitattributes  @MichaelJSr
