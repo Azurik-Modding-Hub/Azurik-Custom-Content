@@ -44,6 +44,7 @@ sounds/<name>/*.wav           sounds the engine reads at its own paths (booblord
 fx/<name>/...                 effects' files, likewise
 packs/<id>/pack.json          a pack: an AzurKit mods file (none yet)
 scripts/check.py              the check below
+.github/                      CODEOWNERS and the pull-request check (workflows/check.yml)
 ```
 
 Each folder takes only its own kinds of file, and a `.md` note: `variants/`
@@ -83,7 +84,8 @@ entry's files at most 256 MiB), every listed file's size and sha256 and its
 kind, that every file under the content folders is listed, and that nothing
 here is a game image or a part of one, a disk image, an EEPROM dump, a RAM
 snapshot or a private key. Python 3.10 or later, no packages. AzurKit checks
-the same rules on Install.
+the same rules on Install. On a pull request, `content-check` runs main's
+copy over the pull request's files.
 
 ## Licences
 

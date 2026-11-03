@@ -1,0 +1,74 @@
+# The pull-request check (Step 4.4cc-a; SECURITY-REVIEW's release check, item 2). It runs main's scripts/check.py over
+# a pull request's files. Main's branch rules require this job, content-check, and a code owner's review
+# (.github/CODEOWNERS).
+# - The trigger is pull_request_target, so this file and the checker always come from main, never from the pull request.
+#   A pull request that changes either one is checked by main's copy; its own copy runs only after it merges.
+# - Nothing from the pull request runs. Its head commit is fetched into pr/ as data, from the repository's public URL,
+#   with no token. Only plain files are taken: the step refuses a link or a submodule before anything is written.
+#   info/attributes outranks the pull request's .gitattributes, so checkout writes each file's committed bytes, the
+#   bytes raw.githubusercontent.com serves to AzurKit. Then python3 -I runs main's check.py on pr/. check.py is stdlib
+#   only, and -I keeps pr/ and the environment off its path. File names are printed only after ::stop-commands::, so a
+#   name can't act as a workflow command.
+# - The token can only read (contents: read; the repository's default is read too). There is no secret, no cache and no
+#   write. harden-runner blocks every host but github.com, which the two fetches need, and takes sudo and containers away.
+# - The commit checked is the pull request's head. Main's rules require a branch to be up to date with main before it
+#   merges, so that commit's tree is the tree that lands.
+# - There is no paths filter and no job condition. A required check that doesn't run would hold a pull request forever
+#   (missing), or let it through (skipped).
+# Actions are pinned by commit sha, with their release beside it, as AzurKit's workflows pin them.
+name: check
+
+on:
+  pull_request_target:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: check-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  content-check:
+    name: content-check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: harden-runner, egress blocked, no sudo
+        uses: step-security/harden-runner@46b06cea07f9e64621fdf066ba77ac6915163d43  # v2.22.3
+        with:
+          egress-policy: block
+          allowed-endpoints: >-
+            github.com:443
+          disable-sudo-and-containers: true
+      - name: Main's checker (main is the only thing checked out)
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          path: base
+          persist-credentials: false
+      - name: The pull request's files, fetched as data
+        env:
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          REPO_URL: ${{ github.server_url }}/${{ github.repository }}.git
+        run: |
+          [[ "$HEAD_SHA" =~ ^[0-9a-f]{40}$ ]] || { echo "::error::the head $HEAD_SHA isn't a commit id"; exit 1; }
+          git -c init.defaultBranch=pr init -q pr
+          printf '* -text -filter -ident -working-tree-encoding\n' > pr/.git/info/attributes
+          git -C pr fetch -q --no-tags --depth=1 "$REPO_URL" "$HEAD_SHA"
+          odd="$(git -C pr ls-tree -r --full-tree "$HEAD_SHA" |
+                 awk -F '\t' '{ split($1, m, " ") } m[1] != "100644" && m[1] != "100755" { print m[1] " " $2 }')"
+          if [ -n "$odd" ]; then
+            echo "::error::only plain files may be here: the pull request holds a link (120000) or a submodule (160000)"
+            printf '%s\n' "$odd"
+            exit 1
+          fi
+          git -C pr -c core.autocrlf=false checkout -q --detach "$HEAD_SHA"
+      - name: Main's check.py over the pull request's files
+        run: |
+          echo "::stop-commands::$(python3 -I -c 'import secrets; print(secrets.token_hex(16))')"
+          python3 -I base/scripts/check.py pr

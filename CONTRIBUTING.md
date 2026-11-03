@@ -36,7 +36,12 @@ anywhere in the tree; the rest is for the review.
    Update when it is higher than the player's copy.
 4. Run `python3 -I scripts/check.py --write`: it fills in each listed
    file's sha256 and size, then checks everything. It must say `ok`.
-5. Open a pull request.
+5. Open a pull request. Its check (`content-check`) runs main's
+   `scripts/check.py` over your branch's files, never your branch's own copy,
+   so a change to the check lands on its own, before the entries that need
+   it. Only plain files pass: no links, no submodules. The owner reviews every
+   pull request (`.github/CODEOWNERS`), and a branch must be up to date with
+   main before it merges.
 
 Booblord's and Beamlord's recipes match AzurKit's own copies, which it
 checks on Install: a change to one is made in AzurKit at the same time.
