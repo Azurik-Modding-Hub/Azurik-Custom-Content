@@ -39,6 +39,7 @@ A file has the same path here and in the player's content folder.
 manifest.json                 the entries and every file's sha256 and size
 variants/<id>/variant.json    a variant's recipes, {name: recipe}
 variants/<id>/shipped/*.azkp  AzurKit's build of the variant at the defaults, one a release (booblord's)
+variants/<id>/shipped/parts/  the parts of a Check of each built-in and its own copy, one .azkp a part
 clips/<name>/*.glb            clips the engine reads at its own paths (booblord's moves and idles)
 sounds/<name>/*.wav           sounds the engine reads at its own paths (booblord's voice)
 fx/<name>/...                 effects' files, likewise
@@ -49,7 +50,7 @@ scripts/check.py              the check below
 
 Each folder takes only its own kinds of file, and a `.md` note: `variants/`
 `.json`, `.glb`, `.gltf`, `.bin` and `.png` (a recipe and the files read
-beside it) and `.azkp` (a shipped build); `clips/` `.glb`, `.gltf` and `.bin`; `sounds/` `.wav`; `fx/`
+beside it) and `.azkp` (a shipped build or a Check's parts); `clips/` `.glb`, `.gltf` and `.bin`; `sounds/` `.wav`; `fx/`
 `.glb`, `.gltf`, `.bin` and `.png`; `packs/` `.json`. No path holds a `:`
 or a name Windows keeps for a device (`CON`, `NUL`, `COM1`).
 
