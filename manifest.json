@@ -8,7 +8,7 @@
       "title": "Booblord",
       "author": "Azurik-Modding-Hub",
       "licence": "MIT",
-      "version": 6,
+      "version": 7,
       "files": [
         {
           "path": "variants/booblord/variant.json",
@@ -114,6 +114,11 @@
           "size": 3511131
         },
         {
+          "path": "variants/booblord/shipped/parts/1c5d67aef603af44.azkp",
+          "sha256": "1c5d67aef603af44ee8299e7652172d73a1b42ed33f3900cfb4e0d333414feca",
+          "size": 1175491
+        },
+        {
           "path": "variants/booblord/shipped/parts/248a9789edcb7ed1.azkp",
           "sha256": "248a9789edcb7ed12a7da0be675df19a8bbbe44612e0df8e751c166081e3ad8b",
           "size": 55344
@@ -159,6 +164,11 @@
           "size": 5161280
         },
         {
+          "path": "variants/booblord/shipped/parts/49390bbda1ebe779.azkp",
+          "sha256": "49390bbda1ebe779e7b322ff2e55208d71df73ed551c10f16045709fbe494ca2",
+          "size": 4187705
+        },
+        {
           "path": "variants/booblord/shipped/parts/510d84862c464aa5.azkp",
           "sha256": "510d84862c464aa55be43f4729df48f47e12036e49ccce42aa8a7d5189d4e1c3",
           "size": 164794
@@ -199,6 +209,11 @@
           "size": 10440483
         },
         {
+          "path": "variants/booblord/shipped/parts/87b9d8106b54b276.azkp",
+          "sha256": "87b9d8106b54b276ef86610d96e7628af8f7652132b6f56588aec95da711b7c4",
+          "size": 6902126
+        },
+        {
           "path": "variants/booblord/shipped/parts/8dfd29a3a9454dfb.azkp",
           "sha256": "8dfd29a3a9454dfb263fb1a4b1a90d977dce0c37634ebaec83571d46395d5fe2",
           "size": 6161700
@@ -207,6 +222,11 @@
           "path": "variants/booblord/shipped/parts/9518097626e95897.azkp",
           "sha256": "9518097626e9589723d57e45c887551e35dc7e71dd3f5da0a4b0ab9a28391315",
           "size": 55492
+        },
+        {
+          "path": "variants/booblord/shipped/parts/9bda6228261b1bbd.azkp",
+          "sha256": "9bda6228261b1bbdc3f96ea3327f95ba33cc43e9bcb2d5fba2e9d0dba2a7377f",
+          "size": 3745814
         },
         {
           "path": "variants/booblord/shipped/parts/9f10b9ebf204d4be.azkp",
