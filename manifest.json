@@ -8,7 +8,7 @@
       "title": "Booblord",
       "author": "Azurik-Modding-Hub",
       "licence": "MIT",
-      "version": 7,
+      "version": 8,
       "files": [
         {
           "path": "variants/booblord/variant.json",
@@ -94,6 +94,11 @@
           "size": 122
         },
         {
+          "path": "variants/booblord/shipped/parts/0715c949129eb894.azkp",
+          "sha256": "0715c949129eb894c7598286cbad243b8b37c0eba9f4c7798800669b087d5610",
+          "size": 5007
+        },
+        {
           "path": "variants/booblord/shipped/parts/07411bcf20a9e573.azkp",
           "sha256": "07411bcf20a9e573241f8481a4f612d1e77ec90b7949a954a8ec51f79626c433",
           "size": 5193179
@@ -114,14 +119,54 @@
           "size": 3511131
         },
         {
+          "path": "variants/booblord/shipped/parts/13c9683096072b95.azkp",
+          "sha256": "13c9683096072b9501b54e944294cc89694f528efb3f95efc8652e63e6008a56",
+          "size": 7051
+        },
+        {
+          "path": "variants/booblord/shipped/parts/159b60a034b0d2c4.azkp",
+          "sha256": "159b60a034b0d2c4b36098feca8a591dd701e95a42ed74480ea089bf70090d44",
+          "size": 6983
+        },
+        {
+          "path": "variants/booblord/shipped/parts/17724a93f2b2edad.azkp",
+          "sha256": "17724a93f2b2edadba8ca59fae75a19af60ef1f8abb4f6d3e72f5b814b4a24b0",
+          "size": 4688
+        },
+        {
+          "path": "variants/booblord/shipped/parts/1b731c283f2dc4ef.azkp",
+          "sha256": "1b731c283f2dc4ef942a532d075f72c982fb7d6634218c8d0c0eb874538258b9",
+          "size": 18216
+        },
+        {
           "path": "variants/booblord/shipped/parts/1c5d67aef603af44.azkp",
           "sha256": "1c5d67aef603af44ee8299e7652172d73a1b42ed33f3900cfb4e0d333414feca",
           "size": 1175491
         },
         {
+          "path": "variants/booblord/shipped/parts/1d00485cc8491c99.azkp",
+          "sha256": "1d00485cc8491c99f9de17cedc53e1aa5739c67c99e026be492689665852cab9",
+          "size": 64033
+        },
+        {
+          "path": "variants/booblord/shipped/parts/1d75ee957bb53df8.azkp",
+          "sha256": "1d75ee957bb53df8dc07dec18d03c892a320bbe3dd67e7863684521a32459edb",
+          "size": 9283
+        },
+        {
+          "path": "variants/booblord/shipped/parts/2400b977e6b35318.azkp",
+          "sha256": "2400b977e6b35318625b7326ee1a483c648e4bac3a8cd58f24d65b219d014685",
+          "size": 4728
+        },
+        {
           "path": "variants/booblord/shipped/parts/248a9789edcb7ed1.azkp",
           "sha256": "248a9789edcb7ed12a7da0be675df19a8bbbe44612e0df8e751c166081e3ad8b",
           "size": 55344
+        },
+        {
+          "path": "variants/booblord/shipped/parts/25c9c6f4ff4da81d.azkp",
+          "sha256": "25c9c6f4ff4da81d2f1c6738eabc8eb0a46637087c5a4050b74a15d71844542e",
+          "size": 11579
         },
         {
           "path": "variants/booblord/shipped/parts/25e7a032264c73df.azkp",
@@ -132,6 +177,11 @@
           "path": "variants/booblord/shipped/parts/2a6079abf9ad2af5.azkp",
           "sha256": "2a6079abf9ad2af5a97506802eaf4b92e89fa81bfc5cc8e0f19f6fef2c0bf902",
           "size": 166280
+        },
+        {
+          "path": "variants/booblord/shipped/parts/2bea45bb929a6f3f.azkp",
+          "sha256": "2bea45bb929a6f3f6e1bba4e4d25de463f8c6de77721ea46e89e4bef4ea3a61e",
+          "size": 20649
         },
         {
           "path": "variants/booblord/shipped/parts/2d889eeed2c777d5.azkp",
@@ -149,6 +199,16 @@
           "size": 20253
         },
         {
+          "path": "variants/booblord/shipped/parts/3469991eafe54e7d.azkp",
+          "sha256": "3469991eafe54e7dde9f0bf92dfb5b6a08e037e3d544147966ad73d481cdd05c",
+          "size": 4723
+        },
+        {
+          "path": "variants/booblord/shipped/parts/346b4479357dd344.azkp",
+          "sha256": "346b4479357dd34435928bcfa7d725e8ff7b5c7c85e1663379c5bf85d16735e8",
+          "size": 2457
+        },
+        {
           "path": "variants/booblord/shipped/parts/3ab75e16ccac7207.azkp",
           "sha256": "3ab75e16ccac7207158e1f7326fcf0ddb714e15c34b2ef91d51a9dc678cbd888",
           "size": 4630919
@@ -157,6 +217,11 @@
           "path": "variants/booblord/shipped/parts/3dd759fe906b090d.azkp",
           "sha256": "3dd759fe906b090d8df68d85be03efd1fbc5733ece319e858906217058f27634",
           "size": 48673
+        },
+        {
+          "path": "variants/booblord/shipped/parts/45cbd28f722d5b58.azkp",
+          "sha256": "45cbd28f722d5b5865efc8692c1713240daf8d5e6f8080d58a65e8ef15be4546",
+          "size": 2007
         },
         {
           "path": "variants/booblord/shipped/parts/46927a361bef869b.azkp",
@@ -169,6 +234,11 @@
           "size": 4187705
         },
         {
+          "path": "variants/booblord/shipped/parts/4f47c3208b2f5c2b.azkp",
+          "sha256": "4f47c3208b2f5c2b72bcd1db664d83a60b97708389cbde439abf45f8267ffa53",
+          "size": 2010
+        },
+        {
           "path": "variants/booblord/shipped/parts/510d84862c464aa5.azkp",
           "sha256": "510d84862c464aa55be43f4729df48f47e12036e49ccce42aa8a7d5189d4e1c3",
           "size": 164794
@@ -177,6 +247,26 @@
           "path": "variants/booblord/shipped/parts/526f2849913d0c4d.azkp",
           "sha256": "526f2849913d0c4df3b78edf3636e1ca2a0bc334039fd5dacf0e311012e8ec48",
           "size": 4794
+        },
+        {
+          "path": "variants/booblord/shipped/parts/56667645d1196995.azkp",
+          "sha256": "56667645d1196995e6f753f4224bb60f4f61aff9e330a5578d08f4fc99a587d5",
+          "size": 7080
+        },
+        {
+          "path": "variants/booblord/shipped/parts/586b5cf54585e4b4.azkp",
+          "sha256": "586b5cf54585e4b415b067f7174569aae84392542ec71e38cd3d6857b487cad0",
+          "size": 767400
+        },
+        {
+          "path": "variants/booblord/shipped/parts/5a167d25521ace68.azkp",
+          "sha256": "5a167d25521ace682740982bbc7bab62eb08430ce1b3a7440b1427c29c61366a",
+          "size": 9883
+        },
+        {
+          "path": "variants/booblord/shipped/parts/63f60a4a02dde763.azkp",
+          "sha256": "63f60a4a02dde763dab11e0f144f6561f7cb371083dd743385c707523a265d1c",
+          "size": 4710
         },
         {
           "path": "variants/booblord/shipped/parts/6acc8fafe4d6e07f.azkp",
@@ -189,6 +279,11 @@
           "size": 5123259
         },
         {
+          "path": "variants/booblord/shipped/parts/7410c807625865db.azkp",
+          "sha256": "7410c807625865dba7ac3d167f392cd2abd9c30b26cedbe9cd89dac52b97a63d",
+          "size": 11355
+        },
+        {
           "path": "variants/booblord/shipped/parts/76dc078fa0efa22f.azkp",
           "sha256": "76dc078fa0efa22f093ab6250ec4543e3e7965eef03df6c44988c5fee7885fce",
           "size": 21259
@@ -197,6 +292,11 @@
           "path": "variants/booblord/shipped/parts/7b28d3026e62cbb4.azkp",
           "sha256": "7b28d3026e62cbb4852bd623129d119288b90161e846b63269e12407552cba3f",
           "size": 4979806
+        },
+        {
+          "path": "variants/booblord/shipped/parts/7eda569024cdebab.azkp",
+          "sha256": "7eda569024cdebabb14ffeab4122e7ee09767f3985b7be4a60a88f29d12cc03c",
+          "size": 9272
         },
         {
           "path": "variants/booblord/shipped/parts/849cbd8c2b07ae95.azkp",
@@ -212,6 +312,21 @@
           "path": "variants/booblord/shipped/parts/87b9d8106b54b276.azkp",
           "sha256": "87b9d8106b54b276ef86610d96e7628af8f7652132b6f56588aec95da711b7c4",
           "size": 6902126
+        },
+        {
+          "path": "variants/booblord/shipped/parts/8aaf701c5cc222ce.azkp",
+          "sha256": "8aaf701c5cc222ce73c8e9d045044533a220fbe96da53b8afe658c4bbd25138f",
+          "size": 17477
+        },
+        {
+          "path": "variants/booblord/shipped/parts/8acbfeff654ab53d.azkp",
+          "sha256": "8acbfeff654ab53d6dcf9c4cf04f53c0ce157538eaa975beddd5af3de704ee44",
+          "size": 6997
+        },
+        {
+          "path": "variants/booblord/shipped/parts/8b79fa0349eaa009.azkp",
+          "sha256": "8b79fa0349eaa009d31e069c9d0466eb514424da9cef781712e0d174a74ded78",
+          "size": 11560
         },
         {
           "path": "variants/booblord/shipped/parts/8dfd29a3a9454dfb.azkp",
@@ -247,6 +362,11 @@
           "path": "variants/booblord/shipped/parts/a6e434789ac2e208.azkp",
           "sha256": "a6e434789ac2e208b0835df406d67ddde552f6d9be909d93c0c05b5e6f3a8895",
           "size": 4447958
+        },
+        {
+          "path": "variants/booblord/shipped/parts/a72233b39c414117.azkp",
+          "sha256": "a72233b39c4141177a8b3b5decf0d65b76491b60e99daa9ec34d3c9658316a80",
+          "size": 5764
         },
         {
           "path": "variants/booblord/shipped/parts/a7ccf9d37e037d2b.azkp",
@@ -299,6 +419,11 @@
           "size": 47662
         },
         {
+          "path": "variants/booblord/shipped/parts/cb4db411a647ce0d.azkp",
+          "sha256": "cb4db411a647ce0d667f9a4e3590464b3b064800c9168a02e206d343b149380b",
+          "size": 3100
+        },
+        {
           "path": "variants/booblord/shipped/parts/cc83c35088c51ef1.azkp",
           "sha256": "cc83c35088c51ef160f49db85fde2e20a3ba8685c88e9c5d6674a110175eacb6",
           "size": 4629931
@@ -329,9 +454,24 @@
           "size": 4797
         },
         {
+          "path": "variants/booblord/shipped/parts/e5a850e06fd222ab.azkp",
+          "sha256": "e5a850e06fd222ab355fc6d351e8e0dd567a05904eb743a1a82a021027d48256",
+          "size": 16154
+        },
+        {
+          "path": "variants/booblord/shipped/parts/e63913eb5d5089cc.azkp",
+          "sha256": "e63913eb5d5089cc6c64d523a039ea5846a28d6c529d55b5c3fd2d7feab54ad0",
+          "size": 16118
+        },
+        {
           "path": "variants/booblord/shipped/parts/e64ce9ffd4b67502.azkp",
           "sha256": "e64ce9ffd4b67502fcd662c89be529f42031adda7ec1dabee1767cd08fdef02b",
           "size": 24206
+        },
+        {
+          "path": "variants/booblord/shipped/parts/e9dd7d52701db1cb.azkp",
+          "sha256": "e9dd7d52701db1cb91179b43a5c9a25b2b8351b063f2b646bb262d95b8ef9742",
+          "size": 23099
         },
         {
           "path": "variants/booblord/shipped/parts/eb58cedee9de621c.azkp",
@@ -344,14 +484,29 @@
           "size": 3563081
         },
         {
+          "path": "variants/booblord/shipped/parts/f22870f2f10a2c0f.azkp",
+          "sha256": "f22870f2f10a2c0f38a3910c16daef8700ae4090376ad63e22ef44fc807317d1",
+          "size": 5749
+        },
+        {
           "path": "variants/booblord/shipped/parts/f25d3a8eb04c8916.azkp",
           "sha256": "f25d3a8eb04c8916e59438527038bfb971a64003d9ef9bb453c42cf21cf46aaf",
           "size": 499388
         },
         {
+          "path": "variants/booblord/shipped/parts/f2a7c8aeaad1f454.azkp",
+          "sha256": "f2a7c8aeaad1f454ac2a4244c9d0a71634f1da229a5b0de941a18c71bc1efe56",
+          "size": 64092
+        },
+        {
           "path": "variants/booblord/shipped/parts/f4e64344a67230c1.azkp",
           "sha256": "f4e64344a67230c1a90fdf2b68fdfb34914ffc12260724aee491c45f1b443e19",
           "size": 1176212
+        },
+        {
+          "path": "variants/booblord/shipped/parts/f697fb856891bdc1.azkp",
+          "sha256": "f697fb856891bdc1c22c191e7dafbd2c602a806c0d343560e74cd700d038d459",
+          "size": 767828
         }
       ],
       "requires": []
