@@ -8,7 +8,7 @@
       "title": "Booblord",
       "author": "Azurik-Modding-Hub",
       "licence": "MIT",
-      "version": 8,
+      "version": 9,
       "files": [
         {
           "path": "variants/booblord/variant.json",
@@ -89,9 +89,9 @@
           "size": 6597452
         },
         {
-          "path": "variants/booblord/shipped/parts/03a821f003d724a2.azkp",
-          "sha256": "03a821f003d724a2800893fe75ca51e466de017271db090864b8fe877b05021e",
-          "size": 122
+          "path": "variants/booblord/shipped/parts/de4a8aa2b2ad1862.azkp",
+          "sha256": "de4a8aa2b2ad1862163796cded0c28e7e5842844d228d7996ffb8edc574f87b9",
+          "size": 121
         },
         {
           "path": "variants/booblord/shipped/parts/0715c949129eb894.azkp",
@@ -299,9 +299,9 @@
           "size": 9272
         },
         {
-          "path": "variants/booblord/shipped/parts/849cbd8c2b07ae95.azkp",
-          "sha256": "849cbd8c2b07ae9561712c05c06a9069c43107d6e2def2b1c8c81255b8b87030",
-          "size": 122
+          "path": "variants/booblord/shipped/parts/fe79db901cb5a743.azkp",
+          "sha256": "fe79db901cb5a7435ba98b78383da13fa8f5318b8f6ade37f990701606df7f30",
+          "size": 120
         },
         {
           "path": "variants/booblord/shipped/parts/85b8a79a6d8d5c18.azkp",
