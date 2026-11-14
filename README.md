@@ -72,6 +72,10 @@ or a name Windows keeps for a device (`CON`, `NUL`, `COM1`).
 - `files`: each one's path, sha256 and size. A file's own `licence` takes the
   place of the entry's.
 - `requires`: other entries' ids, installed with it.
+- `description` (optional): one line of plain text, at most 200 characters,
+  shown on the entry's row.
+- `needs` (optional, top-level, beside `entries`): `{id: "1.3.0"}`, the
+  oldest AzurKit an entry's version fits.
 
 ## Checking
 

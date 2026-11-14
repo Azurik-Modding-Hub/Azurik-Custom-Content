@@ -10,7 +10,13 @@ The manifest (``manifest.json``) is ``{"format": "azurik-custom-content",
 "schema_version": 1, "entries": [...]}``; each entry is ``{"id", "kind"
 ("variant" or "pack"), "title", "author", "licence", "version" (a whole
 number, bumped by any change to its files), "files": [{"path", "sha256",
-"size"[, "licence"]}], "requires": [ids]}``. A file's path is the same here
+"size"[, "licence"]}], "requires": [ids][, "description"]}`` (a
+``description``: one line of plain text, at most 200 characters, shown on
+the entry's row), and the manifest's optional top-level ``"needs": {id:
+"1.3.0"}`` names the oldest AzurKit an entry's version fits (an older
+AzurKit after 1.2.0 greys its Install with "update AzurKit"; top-level,
+as a released AzurKit refuses an entry key it doesn't know but reads past a
+top-level one). A file's path is the same here
 and in the player's content folder, under ``variants/``, ``clips/``,
 ``sounds/``, ``fx/`` or ``packs/``, with a suffix its folder takes
 (:data:`SUFFIXES`: no page, script or document a browser renders), and no
@@ -52,6 +58,8 @@ the defaults, read only when AzurKit's own table lists its size and sha256), cli
 JSON, and a note (.md)."""
 TOPS = tuple(SUFFIXES)
 ENTRY_KEYS = ("id", "kind", "title", "author", "licence", "version", "files", "requires")
+DESCRIPTION = 200   # an entry's optional description: at most this many characters, one line of plain text
+RELEASE = re.compile(r"[0-9]{1,6}(?:\.[0-9]{1,6}){0,3}")   # an AzurKit release ``needs`` names: 1.3.0
 FILE_KEYS = ("path", "sha256", "size")
 MAX_MANIFEST = 1 << 20
 MAX_FILE = 64 << 20
@@ -139,7 +147,8 @@ def check_manifest(doc) -> list[str]:
     if doc.get("schema_version") != SCHEMA_VERSION:
         return faults + [f"manifest.json: schema_version {doc.get('schema_version')!r} is unknown "
                          f"(this check reads {SCHEMA_VERSION})"]
-    faults += [f"manifest.json: unknown key {k!r}" for k in doc if k not in ("format", "schema_version", "entries")]
+    faults += [f"manifest.json: unknown key {k!r}" for k in doc
+               if k not in ("format", "schema_version", "entries", "needs")]
     entries = doc.get("entries")
     if not isinstance(entries, list):
         return faults + ["manifest.json: entries is not a list"]
@@ -163,7 +172,10 @@ def check_manifest(doc) -> list[str]:
         else:
             faults.append(f"{at}: id {eid!r} is not [a-z][a-z0-9_]*")
         faults += [f"{at}: no {k!r}" for k in ENTRY_KEYS if k not in entry]
-        faults += [f"{at}: unknown key {k!r}" for k in entry if k not in ENTRY_KEYS]
+        faults += [f"{at}: unknown key {k!r}" for k in entry if k not in (*ENTRY_KEYS, "description")]
+        if "description" in entry and not (isinstance(text := entry["description"], str) and text.strip()
+                                           and len(text) <= DESCRIPTION and text.isprintable()):
+            faults.append(f"{at}: description is not one line of plain text of at most {DESCRIPTION} characters")
         faults += [f"{at}: {k} is not a non-empty string" for k in ("title", "author", "licence")
                    if k in entry and not (isinstance(entry[k], str) and entry[k].strip())]
         if "version" in entry and not (_whole(entry["version"]) and entry["version"] >= 1):
@@ -211,6 +223,15 @@ def check_manifest(doc) -> list[str]:
                    if isinstance(r, str) and r not in ids]
     faults += [f"manifest.json: entry {eid!r}: requires itself, through {' -> '.join(loop)}"
                for eid, loop in _loops(graph)]
+    needs = doc.get("needs", {})
+    if not isinstance(needs, dict):
+        return faults + ["manifest.json: needs is not an object of entry ids and the AzurKit release each needs"]
+    for eid, release in needs.items():
+        if eid not in ids:
+            faults.append(f"manifest.json: needs {eid!r}, which no entry is")
+        if not (isinstance(release, str) and RELEASE.fullmatch(release)):
+            faults.append(f"manifest.json: needs: entry {eid!r}'s AzurKit {release!r} is not a release of dotted "
+                          "whole numbers (1.3.0)")
     return faults
 
 

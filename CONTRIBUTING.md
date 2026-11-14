@@ -45,6 +45,10 @@ anywhere in the tree; the rest is for the review.
 
 Booblord's and Beamlord's recipes match AzurKit's own copies, which it
 checks on Install: a change to one is made in AzurKit at the same time.
+An entry version that needs a newer AzurKit names it in the manifest's
+top-level `needs` (`{"booblord": "1.3.0"}`), set when main moves at that
+release's publish: an older AzurKit that reads it (any after 1.2.0) greys
+its Install and Update with "update AzurKit" before anything downloads.
 
 ## Licence
 
